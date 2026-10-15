@@ -69,7 +69,7 @@ No total, uma travessia completa leva cerca de 17 segundos.
 ## 💻 Código
 
 ```cpp
-// Semáforo-Arduíno-Uno
+// Semáforo-Arduíno-Uno V 0.2
 
 // Define os pinos dos LEDs do semáforo dos carros
 #define LED_S_VERDE 2
@@ -117,8 +117,40 @@ void loop() {
       // Apaga o verde do semáforo
       digitalWrite(LED_S_VERDE, LOW);
 
-      // Vermelho do semáforo piscando três "i < 3;" vezes 
-      for (int i = 0; i < 3; i++)
+      // Verde do semáforo piscando três "piscaLed_S_Verde < 3;" vezes antes de passar pro amarelo
+      for (int piscaLed_S_Verde = 0; piscaLed_S_Verde < 3; piscaLed_S_Verde++)
+      {
+        // Ligado
+        digitalWrite(LED_S_VERDE, HIGH);
+        delay(500);
+        // Desligado
+        digitalWrite(LED_S_VERDE, LOW);
+        delay(500);
+      }
+
+      // Amarelo do semáforo piscando três "piscaLed_S_Amarelo < 3;" vezes antes de passar pro vermelho
+      for (int piscaLed_S_Amarelo = 0; piscaLed_S_Amarelo < 3; piscaLed_S_Amarelo++)
+      {
+        // Ligado
+        digitalWrite(LED_S_AMARELO, HIGH);
+        delay(500);
+        // Desligado
+        digitalWrite(LED_S_AMARELO, LOW);
+        delay(500);
+      }
+
+      // Semáfro vermelho ligado
+      digitalWrite(LED_S_VERMELHO, HIGH);
+      // Pedestre verde ligado
+      digitalWrite(LED_P_VERDE, HIGH);
+      // Pedestre vermelho desligado
+      digitalWrite(LED_P_VERMELHO, LOW);
+
+      // Tempo para o pedestre atravessar
+      delay(5000);
+
+          // Vermelho do semáforo piscando três "piscaLed_S_Vermelho < 3;" vezes 
+      for (int piscaLed_S_Vermelho = 0; piscaLed_S_Vermelho < 3; piscaLed_S_Vermelho++)
       {
         // Ligado
         digitalWrite(LED_S_VERMELHO, HIGH);
@@ -128,7 +160,8 @@ void loop() {
         delay(500);
       }
 
-      for (int i = 0; i < 4; i++)
+      // Amarelo do semáforo piscando três "piscaLed_S_Amarelo < 3;" vezes antes de passar pro vermelho
+      for (int piscaLed_S_Amarelo = 0; piscaLed_S_Amarelo < 3; piscaLed_S_Amarelo++)
       {
         // Ligado
         digitalWrite(LED_S_AMARELO, HIGH);
@@ -137,21 +170,9 @@ void loop() {
         digitalWrite(LED_S_AMARELO, LOW);
         delay(500);
       }
-      // Semáfro vermelho ligado
-      digitalWrite(LED_S_VERMELHO, HIGH);
-
-      // Pedestre verde ligado
-      digitalWrite(LED_P_VERDE, HIGH);
-
-      // Pedestre vermelho desligado
-      digitalWrite(LED_P_VERMELHO, LOW);
-
-      // Tempo para o pedestre atravessar
-      delay(5000);
 
       // LED verde do pedestre desligado
       digitalWrite(LED_P_VERDE, LOW);
-
       // LED vermelho do semáforo desligado
       digitalWrite(LED_S_VERMELHO, LOW);
     }
