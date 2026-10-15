@@ -96,30 +96,31 @@ void setup() {
   pinMode(LED_P_VERMELHO, OUTPUT);
 
   // Configura o botão como entrada utilizando o resistor de pull-up interno
+  // (solto = HIGH, pressionado = LOW)
   pinMode(BOTAO, INPUT_PULLUP);
 }
 
 void loop() {
-  // Estado inicial, ambos ligados
+  // Estado inicial: verde para os carros e vermelho para o pedestre
   digitalWrite(LED_S_VERDE, HIGH);
   digitalWrite(LED_P_VERMELHO, HIGH);
 
   // Espera o botão ser pressionado
-  if (digitalRead(BOTAO) == LOW) 
+  if (digitalRead(BOTAO) == LOW)
   {
-    // Debounce simples
+    // Debounce simples: espera o ruído do contato passar
     delay(50);
-    
+
     // Confirma se o botão continua pressionado
     if (digitalRead(BOTAO) == LOW)
     {
-      // Mantém o verde do semáforo durante 5 segundos
+      // Mantém o verde dos carros aceso por 5 segundos antes de iniciar a troca
       delay(5000);
 
-      // Apaga o verde do semáforo
+      // Apaga o verde fixo para começar a piscar
       digitalWrite(LED_S_VERDE, LOW);
 
-      // Verde do semáforo piscando três "piscaLed_S_Verde < 3;" vezes antes de passar pro amarelo
+      // Verde dos carros piscando 3 vezes antes de passar pro amarelo
       for (int piscaLed_S_Verde = 0; piscaLed_S_Verde < 3; piscaLed_S_Verde++)
       {
         // Ligado
@@ -130,7 +131,7 @@ void loop() {
         delay(500);
       }
 
-      // Amarelo do semáforo piscando três "piscaLed_S_Amarelo < 3;" vezes antes de passar pro vermelho
+      // Amarelo dos carros piscando 3 vezes antes de passar pro vermelho
       for (int piscaLed_S_Amarelo = 0; piscaLed_S_Amarelo < 3; piscaLed_S_Amarelo++)
       {
         // Ligado
@@ -141,17 +142,17 @@ void loop() {
         delay(500);
       }
 
-      // Semáfro vermelho ligado
+      // Vermelho dos carros ligado
       digitalWrite(LED_S_VERMELHO, HIGH);
-      // Pedestre verde ligado
+      // Verde do pedestre ligado
       digitalWrite(LED_P_VERDE, HIGH);
-      // Pedestre vermelho desligado
+      // Vermelho do pedestre desligado
       digitalWrite(LED_P_VERMELHO, LOW);
 
-      // Tempo para o pedestre atravessar
+      // Primeiros 5 segundos da travessia, com os carros parados
       delay(5000);
 
-          // Vermelho do semáforo piscando três "piscaLed_S_Vermelho < 3;" vezes 
+      // Vermelho dos carros piscando 3 vezes, avisando que a travessia está acabando
       for (int piscaLed_S_Vermelho = 0; piscaLed_S_Vermelho < 3; piscaLed_S_Vermelho++)
       {
         // Ligado
@@ -162,7 +163,7 @@ void loop() {
         delay(500);
       }
 
-      // Amarelo do semáforo piscando três "piscaLed_S_Amarelo < 3;" vezes antes de passar pro vermelho
+      // Amarelo dos carros piscando 3 vezes antes de voltar pro verde
       for (int piscaLed_S_Amarelo = 0; piscaLed_S_Amarelo < 3; piscaLed_S_Amarelo++)
       {
         // Ligado
@@ -173,10 +174,9 @@ void loop() {
         delay(500);
       }
 
-      // LED verde do pedestre desligado
+      // Encerra a travessia: apaga o verde do pedestre
+      // (o vermelho do pedestre e o verde dos carros voltam no início do loop)
       digitalWrite(LED_P_VERDE, LOW);
-      // LED vermelho do semáforo desligado
-      digitalWrite(LED_S_VERMELHO, LOW);
     }
   }
 }
