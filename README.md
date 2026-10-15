@@ -192,7 +192,7 @@ Também ficou claro o limite do `delay()`: enquanto a sequência roda, o Arduino
 
 Essa simulação é uma versão simples de um semáforo de pedestres. Ela não tem sensor de carros, temporização variável nem ciclo automático. O objetivo foi praticar o controle de saídas digitais, leitura de botão e sequência de estados.
 
-Nos meus projetos de semáforo eu costumo começar com resistores de 150 kΩ, e na simulação os LEDs acendem normalmente. Se você quiser montar o circuito de verdade, ou só deixar o brilho mais forte no Wokwi, dá para trocar por resistores de 220 Ω ou 330 Ω sem mexer no código. Com 5 V, esses valores deixam passar uma corrente de uns 10 a 14 mA, que é o brilho normal de um LED comum.
+Nos meus projetos de semáforo eu costumo começar com resistores de 220 Ω, e na simulação os LEDs acendem normalmente. Se você quiser montar o circuito de verdade, ou só deixar o brilho mais forte no Wokwi, dá para trocar por resistores de 270 Ω ou 330 Ω sem mexer no código. Com 5 V, esses valores deixam passar uma corrente de uns 10 a 14 mA, que é o brilho normal de um LED comum.
 
 ---
 
