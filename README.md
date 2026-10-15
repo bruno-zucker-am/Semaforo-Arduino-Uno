@@ -22,7 +22,7 @@ O projeto foi feito como parte do meu portfólio prático de sistemas embarcados
 - 3 LEDs para o semáforo dos carros (verde, amarelo e vermelho)
 - 2 LEDs para o semáforo dos pedestres (verde e vermelho)
 - 1 botão (pushbutton)
-- 5 resistores de 150 kΩ, um por LED (pode ser trocado por 220 Ω ou 330 Ω, veja a nota no final)
+- 5 resistores de 220 Ω, um por LED (pode ser trocado por 270 Ω ou 330 Ω, veja a nota no final)
 - Linguagem C++ (Arduino)
 
 ---
