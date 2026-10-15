@@ -50,19 +50,21 @@ O botão fica ligado entre o pino 12 e o GND. Como o código usa o resistor de p
 
 ### Estado inicial
 
-Sem ninguém apertar o botão, o semáforo dos carros fica **verde** e o dos pedestres fica **vermelho**.
+Sem ninguém apertar o botão, o semáforo dos carros fica verde e o dos pedestres fica vermelho.
 
 ### Quando o botão é pressionado
 
 1. O código faz um debounce simples: espera 50 ms e confirma se o botão continua pressionado, pra evitar leitura falsa por ruído.
-2. O verde dos carros continua aceso por 5 segundos e depois apaga.
-3. O vermelho dos carros pisca 3 vezes.
-4. O amarelo dos carros pisca 4 vezes.
-5. O vermelho dos carros fica aceso e o pedestre recebe o verde.
-6. O pedestre tem 5 segundos para atravessar.
-7. Os LEDs apagam e o ciclo volta ao estado inicial.
+2. O verde dos carros continua aceso por 5 segundos e depois pisca 3 vezes antes de mudar para o amarelo.
+3. O amarelo dos carros pisca 3 vezes antes de mudar para o vermelho.
+4. O vermelho dos carros fica aceso por 5 segundos e o verde do pedestre também acende, liberando a travessia.
+5. O vermelho dos carros pisca 3 vezes, com o verde do pedestre ainda aceso.
+6. O amarelo dos carros pisca 3 vezes, com o verde do pedestre ainda aceso.
+7. O verde do pedestre apaga, o vermelho dos carros fica apagado e o ciclo volta ao estado inicial (verde para os carros e vermelho para o pedestre).
 
-No total, uma travessia completa leva cerca de 17 segundos.
+O pedestre tem 11 segundos para atravessar no total (5 s + 3 s + 3 s). Cada piscada dura 1 segundo (500 ms ligado + 500 ms desligado).
+
+No total, uma travessia completa leva cerca de 22 segundos.
 
 ---
 
