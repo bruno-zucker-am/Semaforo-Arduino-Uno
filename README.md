@@ -1,6 +1,6 @@
 # 🚦 Semáforo-Arduino-Uno
 
-Simulação de um cruzamento com semáforo de carros, semáforo de pedestres e botão de travessia, feita com Arduino Uno no Wokwi.
+Cruzamento com semáforo de carros, semáforo de pedestres e botão de travessia, feito com Arduino Uno. O mesmo código foi testado e funciona no simulador (Wokwi) e no hardware.
 
 ---
 
@@ -8,7 +8,7 @@ Simulação de um cruzamento com semáforo de carros, semáforo de pedestres e b
 
 A ideia foi reproduzir o funcionamento de uma faixa de pedestres com botão: os carros seguem com o sinal verde até alguém pedir para atravessar, e aí o semáforo faz toda a transição até liberar o pedestre.
 
-O projeto foi feito como parte do meu portfólio prático de sistemas embarcados, usando o Wokwi como ambiente de simulação.
+O projeto foi feito como parte do meu portfólio prático de sistemas embarcados. Primeiro simulei no Wokwi e depois montei o circuito no hardware, usando exatamente o mesmo código nos dois.
 
 ▶️ [Abrir a simulação no Wokwi](https://wokwi.com/projects/475978723933270017)
 
@@ -191,6 +191,11 @@ A visão geral mostra o Arduino Uno, a protoboard com os cinco LEDs, os resistor
 
 ![Circuito no Wokwi](imagens/circuito_wokwi.jpg)
 
+### Circuito montado no hardware
+O mesmo código rodando no Arduino Uno com a montagem real na protoboard.
+
+![Circuito no hardware](imagens/circuito_hardware.jpg)
+
 ---
 
 ## 📁 Arquivo do diagrama
@@ -213,9 +218,9 @@ Também ficou claro o limite do `delay()`: enquanto a sequência roda, o Arduino
 
 ## ⚠️ Sobre o projeto
 
-Essa simulação é uma versão simples de um semáforo de pedestres. Ela não tem sensor de carros, temporização variável nem ciclo automático. O objetivo foi praticar o controle de saídas digitais, leitura de botão e sequência de estados.
+Essa é uma versão simples de um semáforo de pedestres. Ela não tem sensor de carros, temporização variável nem ciclo automático. O objetivo foi praticar o controle de saídas digitais, leitura de botão e sequência de estados.
 
-Nos meus projetos de semáforo eu costumo começar com resistores de 220 Ω, e na simulação os LEDs acendem normalmente. Se você quiser montar o circuito de verdade, ou só deixar o brilho mais forte no Wokwi, dá para trocar por resistores de 270 Ω ou 330 Ω sem mexer no código. Com 5 V, esses valores deixam passar uma corrente de uns 10 a 14 mA, que é o brilho normal de um LED comum.
+Nos meus projetos de semáforo eu costumo começar com resistores de 220 Ω, e os LEDs acendem normalmente. Se você quiser deixar o brilho mais forte, dá para trocar por resistores de 270 Ω ou 330 Ω sem mexer no código. Com 5 V, esses valores deixam passar uma corrente de uns 10 a 14 mA, que é o brilho normal de um LED comum.
 
 ---
 
